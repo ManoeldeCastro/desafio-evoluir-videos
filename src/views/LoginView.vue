@@ -1,13 +1,14 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg to-white flex items-center justify-center">
-    <div class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-lg">
+  <div class="min-h-screen bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg to-white flex items-center justify-around">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <div class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl">
       <div>
         <h2 class="mt-6 text-center text-3xl font-extrabold text-mvceditora-font">
-          Faça Login
+          Faça seu Login:
         </h2>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent="login">
-        <div class="rounded-md shadow-sm -space-y-px">
+        <div class="rounded-md -space-y-px">
           <div>
             <label for="email-address" class="text-mvceditora-font">Endereço de E-mail</label>
             <input
@@ -50,23 +51,30 @@
 </template>
 
 <script>
+const emails = ['vselecao@gruponeiva.com.br',
+'coordenacao.edtech@mvceditora.com.br',
+'dev03@gruponeiva.com.br',
+'edtech01@gruponeiva.com.br',
+'manoeldiasmf@gmail.com',
+'dev01@gruponeiva.com.br',
+'head.tech@mvceditora.com.br']
+
+const senha = 'grupoNeiva'
+localStorage.setItem('authenticated', JSON.stringify(false));
+
+localStorage.setItem('emails', JSON.stringify(emails));
+localStorage.setItem('senha', JSON.stringify(senha));
 export default {
   data() {
     return {
       email: '',
       password: '',
-      mockUser: {
-        email: 'usuario@exemplo.com', // E-mail fictício para fins de demonstração
-        senha: 'senha123', // Senha fictícia para fins de demonstração
-      },
     };
   },
   methods: {
     login() {
-      // Lógica de autenticação aqui
-      // Neste exemplo, vamos apenas verificar se os dados inseridos correspondem aos dados mockados
-      if (this.email === this.mockUser.email && this.password === this.mockUser.senha) {
-        // Redirecionar o usuário para a página de feed após o login bem-sucedido
+      if (emails.includes(this.email) && this.password === senha) {
+        localStorage.setItem('authenticated', JSON.stringify(true))
         this.$router.push('/feed');
       } else {
         alert('Credenciais inválidas');
@@ -74,6 +82,8 @@ export default {
     },
   },
 };
+
+
 </script>
 
 <style scoped>
@@ -87,10 +97,6 @@ export default {
 
   .to-mvceditora-bg {
     background-color: #c4e1f4;
-  }
-
-  .text-mvceditora-font {
-    color: #4d4d4e;
   }
 
   .bg-mvceditora-logo {
