@@ -1,17 +1,25 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
-  <div class="min-h-screen bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg to-white flex items-center justify-around">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <div class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl">
+  <div
+    class="min-h-screen bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg to-white flex items-center justify-around"
+  >
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <div
+      class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl"
+    >
       <div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-mvceditora-font">
+        <h2
+          class="mt-6 text-center text-3xl font-extrabold text-mvceditora-font"
+        >
           Faça seu Login:
         </h2>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent="login">
         <div class="rounded-md -space-y-px">
           <div>
-            <label for="email-address" class="text-mvceditora-font">Endereço de E-mail</label>
+            <label for="email-address" class="text-mvceditora-font"
+              >Endereço de E-mail</label
+            >
             <input
               id="email-address"
               v-model="email"
@@ -60,7 +68,7 @@ const emails = [
   'edtech01@gruponeiva.com.br',
   'manoeldiasmf@gmail.com',
   'dev01@gruponeiva.com.br',
-  'head.tech@mvceditora.com.br'
+  'head.tech@mvceditora.com.br',
 ];
 
 // Senha para autenticação
@@ -100,36 +108,36 @@ export default {
 </script>
 
 <style scoped>
-  /* Estilos CSS específicos do componente */
-  .from-mvceditora-bg {
-    background-color: #c4e1f4;
-  }
+/* Estilos CSS específicos do componente */
+.from-mvceditora-bg {
+  background-color: #c4e1f4;
+}
 
-  .to-white {
-    background-color: white;
-  }
+.to-white {
+  background-color: white;
+}
 
-  .to-mvceditora-bg {
-    background-color: #c4e1f4;
-  }
+.to-mvceditora-bg {
+  background-color: #c4e1f4;
+}
 
-  .bg-mvceditora-logo {
-    background-color: #312783;
-  }
+.bg-mvceditora-logo {
+  background-color: #312783;
+}
 
-  .border-mvceditora-font {
-    border-color: #4d4d4e;
-  }
+.border-mvceditora-font {
+  border-color: #4d4d4e;
+}
 
-  .focus\:ring-mvceditora-primary:focus {
-    ring-color: #312783;
-  }
+.focus\:ring-mvceditora-primary:focus {
+  ring-color: #312783;
+}
 
-  .hover\:bg-mvceditora-font:hover {
-    background-color: #4d4d4e;
-  }
+.hover\:bg-mvceditora-font:hover {
+  background-color: #4d4d4e;
+}
 
-  .hover\:shadow:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+.hover\:shadow:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 </style>

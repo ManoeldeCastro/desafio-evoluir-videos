@@ -3,17 +3,36 @@
   <div class="p-5" v-if="authenticated">
     <!-- Verifica se o usuário está autenticado -->
     <div class="flex text-center justify-center">
-      <img class="imgLogo text-center justify-center" alt="Vue logo" src="./assets/logo.png"> 
+      <img
+        class="imgLogo text-center justify-center"
+        alt="Vue logo"
+        src="./assets/logo.png"
+      />
     </div>
-    <div class="text-end">
-    </div>
+    <div class="text-end"></div>
     <div class="flex justify-between">
       <div>
-        <h1 class="mx-5 text-center text-3xl font-extrabold text-mvceditora-font bg-blue-500/25 p-2 rounded-lg">Página de vídeos</h1>
+        <h1
+          class="mx-5 text-center text-3xl font-extrabold text-mvceditora-font bg-blue-500/25 p-2 rounded-lg"
+        >
+          Página de vídeos
+        </h1>
       </div>
-      <div class="flex justify-end text-center items-center mx-5 bg-blue-500/25 pl-2 py-2 rounded-lg">
+      <div
+        class="flex justify-end text-center items-center mx-5 bg-blue-500/25 pl-2 py-2 rounded-lg"
+      >
         <label for="searchVideos" class="">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 512 512"
+          >
+            <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
         </label>
         <input
           type="search"
@@ -26,7 +45,9 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center"
+    >
       <!-- Lista de vídeos -->
       <video-card
         v-for="video in sortedVideos"
@@ -59,15 +80,25 @@
       <p class="text-gray-700">Carregando vídeos...</p>
     </div>
 
-    <div v-if="!loading && !searchQuery && sortedVideos.length === 0" class="text-center">
+    <div
+      v-if="!loading && !searchQuery && sortedVideos.length === 0"
+      class="text-center"
+    >
       <!-- Exibe uma mensagem se não houver vídeos para exibir -->
       <p class="text-gray-700">Nenhum vídeo para exibir.</p>
     </div>
   </div>
   <div v-else class="text-center items-center justify-center mt-10 text-lg">
     <!-- Exibe uma mensagem de erro se o usuário não estiver autenticado -->
-    <h1 class="text-gray-700 text-center items-center justify-center">Você não tem permissão para acessar esta página. Faça login primeiro.</h1>
-    <button class="p-2 justify-center items-center text-center py-2 mt-4 text-sm font-medium text-white bg-mvceditora-logo border rounded-lg hover:bg-mvceditora-font hover:shadow focus:outline-none focus:ring focus:ring-mvceditora-primary" @click="backToLogin">Voltar para página de login</button>
+    <h1 class="text-gray-700 text-center items-center justify-center">
+      Você não tem permissão para acessar esta página. Faça login primeiro.
+    </h1>
+    <button
+      class="p-2 justify-center items-center text-center py-2 mt-4 text-sm font-medium text-white bg-mvceditora-logo border rounded-lg hover:bg-mvceditora-font hover:shadow focus:outline-none focus:ring focus:ring-mvceditora-primary"
+      @click="backToLogin"
+    >
+      Voltar para página de login
+    </button>
   </div>
 </template>
 
@@ -136,16 +167,12 @@ export default {
 </script>
 
 <style scoped>
-
-
-input[type="search"] {
-  border-color: #c4e1f4; 
-  color: #4D4D4E; 
+input[type='search'] {
+  border-color: #c4e1f4;
+  color: #4d4d4e;
   border-radius: 0.25rem;
   padding: 0.5rem;
 }
-
-
 
 .modal {
   background-color: rgba(0, 0, 0, 0.8);
@@ -171,7 +198,7 @@ input[type="search"] {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: #4D4D4E;
+  color: #4d4d4e;
   cursor: pointer;
 }
 
