@@ -1,4 +1,5 @@
 <template>
+  <!-- O template define a estrutura HTML do componente -->
   <div class="min-h-screen bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg to-white flex items-center justify-around">
     <img alt="Vue logo" src="./assets/logo.png">
     <div class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl">
@@ -51,42 +52,55 @@
 </template>
 
 <script>
-const emails = ['vselecao@gruponeiva.com.br',
-'coordenacao.edtech@mvceditora.com.br',
-'dev03@gruponeiva.com.br',
-'edtech01@gruponeiva.com.br',
-'manoeldiasmf@gmail.com',
-'dev01@gruponeiva.com.br',
-'head.tech@mvceditora.com.br']
+// Array com os endereços de e-mail autorizados para login
+const emails = [
+  'vselecao@gruponeiva.com.br',
+  'coordenacao.edtech@mvceditora.com.br',
+  'dev03@gruponeiva.com.br',
+  'edtech01@gruponeiva.com.br',
+  'manoeldiasmf@gmail.com',
+  'dev01@gruponeiva.com.br',
+  'head.tech@mvceditora.com.br'
+];
 
-const senha = 'grupoNeiva'
+// Senha para autenticação
+const senha = 'grupoNeiva';
+
+// Define a flag 'authenticated' como false no localStorage
 localStorage.setItem('authenticated', JSON.stringify(false));
 
+// Armazena os endereços de e-mail e a senha no localStorage
 localStorage.setItem('emails', JSON.stringify(emails));
 localStorage.setItem('senha', JSON.stringify(senha));
+
 export default {
   data() {
     return {
-      email: '',
-      password: '',
+      email: '', // Armazena o e-mail inserido pelo usuário
+      password: '', // Armazena a senha inserida pelo usuário
     };
   },
   methods: {
+    // Função chamada quando o formulário de login é enviado
     login() {
+      // Verifica se o e-mail inserido está na lista de e-mails autorizados e se a senha está correta
       if (emails.includes(this.email) && this.password === senha) {
-        localStorage.setItem('authenticated', JSON.stringify(true))
+        // Define a flag 'authenticated' como true no localStorage
+        localStorage.setItem('authenticated', JSON.stringify(true));
+
+        // Redireciona o usuário para a página '/feed'
         this.$router.push('/feed');
       } else {
+        // Exibe um alerta se as credenciais forem inválidas
         alert('Credenciais inválidas');
       }
     },
   },
 };
-
-
 </script>
 
 <style scoped>
+  /* Estilos CSS específicos do componente */
   .from-mvceditora-bg {
     background-color: #c4e1f4;
   }
