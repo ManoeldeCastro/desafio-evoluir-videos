@@ -24,7 +24,7 @@
     </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center">
       <video-card
         v-for="video in sortedVideos"
         :key="video.id"

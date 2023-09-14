@@ -11,7 +11,7 @@ export async function searchVideos(query, maxResults) {
         key: API_KEY,
         q: searchQuery,
         type: 'video',
-        maxResults: 30,
+        maxResults: 10,
         part: 'snippet',
       },
     });
