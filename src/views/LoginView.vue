@@ -7,14 +7,7 @@
     <div
       class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl"
     >
-      <div class="word-waves">
-        <span
-          class=""
-        >
-          Faça seu Login:
-      </span>
-        <span>Faça seu Login:</span>
-      </div>
+      <word-waves text="Faça seu login:"/>
       <form class="mt-8 space-y-6" @submit.prevent="login">
         <div class="rounded-md -space-y-px">
           <div>
@@ -62,6 +55,7 @@
 
 <script>
 import CustomButton from "@/components/CustomButton.vue";
+import WordWaves from "../components/WordWaves.vue";
 
 // Array com os endereços de e-mail autorizados para login
 const emails = [
@@ -109,37 +103,12 @@ export default {
   },
   components: {
     CustomButton,
-  }
+    WordWaves
+}
 };
 </script>
 
 <style scoped>
-.word-waves span {
-  position: absolute;
-  left: 50%;
-  color: #312783;
-  font-size: 2rem;
-  transform: translate(-50%, -50%);
-}
-
-.word-waves span:nth-child(1){
-  color: transparent;
-  -webkit-text-stroke: 0.3px #312783;
-}
-.word-waves span:nth-child(2){
-  color: #312783;
-  -webkit-text-stroke: 1px #312783;
-  animation: animation 3s ease-in-out infinite;
-}
-
-@keyframes animation {
-  0%, 100% {
-    clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 50%, 100% 52%, 100% 100%, 0% 100%);
-  }
-  50% {
-    clip-path: polygon(0% 60%, 10% 65%, 34% 66%, 51% 62%, 67% 50% 84% 45%, 100% 46%, 100% 46%, 100% 100%, 0% 100%);
-  }
-}
 .button-styled {
   color: #312783;
   position: relative;
