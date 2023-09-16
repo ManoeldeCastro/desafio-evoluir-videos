@@ -7,12 +7,13 @@
     <div
       class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl"
     >
-      <div>
-        <h2
-          class="mt-6 text-center text-3xl font-extrabold text-mvceditora-font"
+      <div class="word-waves">
+        <span
+          class=""
         >
           Faça seu Login:
-        </h2>
+      </span>
+        <span>Faça seu Login:</span>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent="login">
         <div class="rounded-md -space-y-px">
@@ -46,13 +47,13 @@
           </div>
         </div>
 
-        <div>
-          <button
+        <div class="">
+          <custom-button @click="login"
             type="submit"
-            class="relative w-full flex justify-center py-2 mt-4 text-sm font-medium text-white bg-mvceditora-logo border rounded-lg hover:bg-mvceditora-font hover:shadow focus:outline-none focus:ring focus:ring-mvceditora-primary"
+            class="button-styled"
           >
             Entrar
-          </button>
+          </custom-button>
         </div>
       </form>
     </div>
@@ -60,6 +61,8 @@
 </template>
 
 <script>
+import CustomButton from "@/components/CustomButton.vue";
+
 // Array com os endereços de e-mail autorizados para login
 const emails = [
   'vselecao@gruponeiva.com.br',
@@ -104,11 +107,77 @@ export default {
       }
     },
   },
+  components: {
+    CustomButton,
+  }
 };
 </script>
 
 <style scoped>
-/* Estilos CSS específicos do componente */
+.word-waves span {
+  position: absolute;
+  left: 50%;
+  color: #312783;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+}
+
+.word-waves span:nth-child(1){
+  color: transparent;
+  -webkit-text-stroke: 0.3px #312783;
+}
+.word-waves span:nth-child(2){
+  color: #312783;
+  -webkit-text-stroke: 1px #312783;
+  animation: animation 3s ease-in-out infinite;
+}
+
+@keyframes animation {
+  0%, 100% {
+    clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 50%, 100% 52%, 100% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(0% 60%, 10% 65%, 34% 66%, 51% 62%, 67% 50% 84% 45%, 100% 46%, 100% 46%, 100% 100%, 0% 100%);
+  }
+}
+.button-styled {
+  color: #312783;
+  position: relative;
+  left: 35%;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 48px;
+  box-shadow: 6px 6px 12 #c5c5c5, 6px 6px 12px #ffffff;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button-styled:hover {
+  color: #ffffff;
+}
+.button-styled::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  border-radius: 48px;
+  background-image: linear-gradient(to right, #3bd9d9 0%, #312783 100%);
+  transition: 0.5s ease;
+  z-index: -1;
+}
+.button-styled:hover::before {
+  width: 100%;
+}
+
+
+
 .from-mvceditora-bg {
   background-color: #c4e1f4;
 }

@@ -1,23 +1,21 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
-  <div class="p-5" v-if="authenticated">
-    <!-- Verifica se o usuário está autenticado -->
-    <div class="flex text-center justify-center">
-      <img
-        class="imgLogo text-center justify-center"
-        alt="Vue logo"
-        src="./assets/logo.png"
-      />
-    </div>
-    <div class="text-end"></div>
-    <div class="flex justify-between">
-      <div>
-        <h1
-          class="mx-5 text-center text-3xl font-extrabold text-mvceditora-font bg-blue-500/25 p-2 rounded-lg"
+  <div class="p-5 " v-if="authenticated">
+    <header class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-5">
+     <img src="https://mvceditora.com.br/wp-content/themes/portalv4.0/img/logo.png" alt="Logo" class="logo-mvc">
+     <word-waves class="mt-5" text="Página de Vídeos"/>
+    <nav class="">
+      <custom-button
+          class="text-black"
+          @click="logout"
         >
-          Página de vídeos
-        </h1>
-      </div>
+          Logout
+        </custom-button>
+    </nav>
+  </header>
+    <!-- Verifica se o usuário está autenticado -->
+    <div class="flex justify-between">
+
       <div
         class="flex justify-end text-center items-center mx-5 bg-blue-500/25 pl-2 py-2 rounded-lg"
       >
@@ -105,6 +103,8 @@
 <script>
 import { searchVideos } from '@/services/api';
 import VideoCard from '@/components/VideoCard.vue';
+import CustomButton from "@/components/CustomButton.vue";
+import WordWaves from "@/components/WordWaves.vue";
 
 export default {
   data() {
@@ -118,27 +118,26 @@ export default {
   },
   components: {
     VideoCard,
+    CustomButton,
+    WordWaves,
   },
   computed: {
     sortedVideos() {
       return this.videos.slice().sort((a, b) => b.viewCount - a.viewCount);
     },
   },
-  mounted() {
+  created() {
     this.checkAuthentication(); // Verifique a autenticação quando a página for carregada
   },
   methods: {
     async checkAuthentication() {
-      // Verifique se o usuário está autenticado (você pode usar localStorage ou Vuex)
       const isAuthenticated = localStorage.getItem('authenticated') === 'true';
 
       if (isAuthenticated) {
         this.authenticated = true;
         this.searchVideos();
       } else {
-        // Se o usuário não estiver autenticado, você pode redirecioná-lo para a página de login
-        // this.$router.push('/login');
-        // Ou simplesmente definir o estado como falso e exibir uma mensagem de erro
+
         this.authenticated = false;
       }
     },
@@ -159,6 +158,10 @@ export default {
     closeModal() {
       this.modalVideo = null;
     },
+    logout() {
+      localStorage.setItem('authenticated', JSON.stringify(false));
+      this.$router.push('/');
+    },
     backToLogin() {
       this.$router.push('/'); // Redireciona o usuário de volta para a página de login
     },
@@ -172,6 +175,10 @@ input[type='search'] {
   color: #4d4d4e;
   border-radius: 0.25rem;
   padding: 0.5rem;
+}
+
+.logo-mvc{
+  width: 6rem;
 }
 
 .modal {
@@ -210,4 +217,5 @@ input[type='search'] {
 .imgLogo {
   width: 30rem;
 }
+
 </style>

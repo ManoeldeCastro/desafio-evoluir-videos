@@ -1,32 +1,30 @@
 <template>
   <!-- Estrutura HTML para exibir informações do vídeo -->
-  <div class="video-item" @click="openModal">
+  <div class="video-item" :class="{ 'slide-in': animateCard }">
     <div
-      class="max-w-sm h-[27rem] rounded-lg overflow-hidden shadow-xl mb-4 text-white bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg shadow-zinc-800"
+      class="max-w-sm h-[21rem] rounded-lg overflow-hidden shadow-xl mb-4 text-white bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg shadow-zinc-800 cursor-pointer tit"
+      title="Clique para assistir"
     >
       <!-- Exibe a imagem em miniatura do vídeo -->
       <img
         :src="video.snippet.thumbnails.medium.url"
         :alt="video.snippet.title"
-        class="w-full"
+        class="w-full video-thumbnail"
       />
-      <div class="px-6 py-4">
-        <!-- Título do vídeo truncado -->
-        <div class="font-bold text-lg mb-2" style="color: var(--color-heading)">
-          {{ truncateTitle(video.snippet.title) }}
-        </div>
-        <!-- Descrição do vídeo truncada -->
-        <p class="text-gray-300 text-sm">
-          {{ truncateDescription(video.snippet.description) }}
-        </p>
-      </div>
-      <div class="px-6 py-4">
+      <div class="px-6 pt-2 pb-1">
         <!-- Título do canal -->
         <span
           class="snippet inline-block bg-mvceditora-logo/50 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2"
         >
           {{ video.snippet.channelTitle }}
         </span>
+      </div>
+      <div class="px-6 py-2">
+        <!-- Título do vídeo truncado -->
+        <div class="font-bold text-base mb-2" style="color: var(--color-heading)">
+          {{ video.snippet.title }}
+        </div>
+        <!-- Descrição do vídeo truncada -->
       </div>
     </div>
   </div>
@@ -37,6 +35,7 @@ export default {
   props: {
     // Propriedade que recebe o objeto de vídeo como entrada
     video: Object,
+    animateCard: Boolean,
   },
   computed: {
     videoUrl() {
@@ -52,16 +51,6 @@ export default {
       }
       return title;
     },
-    truncateDescription(description) {
-      // Função para truncar a descrição do vídeo se for muito longa
-      if (!description || description.length === 0) {
-        return 'Vídeo sem descrição';
-      }
-      if (description.length > 100) {
-        return description.slice(0, 100) + '...';
-      }
-      return description;
-    },
     openModal() {
       // Função para emitir um evento quando o componente é clicado
       // O evento 'video-selected' é emitido com a URL do vídeo incorporado
@@ -72,7 +61,6 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos CSS específicos do componente */
 .snippet {
   background-color: #c4e1f450;
 }
@@ -82,5 +70,28 @@ export default {
 
 .to-mvceditora-bg {
   background-color: var(--color-background-soft);
+}
+
+.video-item {
+  transition: transform 0.3s ease; 
+}
+
+.video-item:hover {
+  transform: scale(1.05); 
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 0.5s ease forwards;
 }
 </style>
