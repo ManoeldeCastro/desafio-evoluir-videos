@@ -1,6 +1,6 @@
 # desafio-evoluir-videos
 
-Esse é um projeto com [Vue Js](https://vuejs.org/).
+Esse é um projeto [Vue Js](https://vuejs.org/).
 
 ### Foram utilizados
 
