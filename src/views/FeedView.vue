@@ -1,6 +1,6 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
-  <div class="p-5 " v-if="authenticated">
+  <div class="p-5 ">
     <header class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-5">
      <img src="https://mvceditora.com.br/wp-content/themes/portalv4.0/img/logo.png" alt="Logo" class="logo-mvc">
      <word-waves class="mt-5" text="Página de Vídeos"/>
@@ -26,7 +26,6 @@
             height="30"
             viewBox="0 0 512 512"
           >
-            <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
               d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
             />
@@ -86,18 +85,6 @@
       <p class="text-gray-700">Nenhum vídeo para exibir.</p>
     </div>
   </div>
-  <div v-else class="text-center items-center justify-center mt-10 text-lg">
-    <!-- Exibe uma mensagem de erro se o usuário não estiver autenticado -->
-    <h1 class="text-gray-700 text-center items-center justify-center">
-      Você não tem permissão para acessar esta página. Faça login primeiro.
-    </h1>
-    <button
-      class="p-2 justify-center items-center text-center py-2 mt-4 text-sm font-medium text-white bg-mvceditora-logo border rounded-lg hover:bg-mvceditora-font hover:shadow focus:outline-none focus:ring focus:ring-mvceditora-primary"
-      @click="backToLogin"
-    >
-      Voltar para página de login
-    </button>
-  </div>
 </template>
 
 <script>
@@ -113,7 +100,7 @@ export default {
       searchQuery: '',
       loading: false,
       modalVideo: null,
-      authenticated: false, // Adicione um estado de autenticação inicialmente falso
+      authenticated: false,
     };
   },
   components: {
@@ -126,21 +113,7 @@ export default {
       return this.videos.slice().sort((a, b) => b.viewCount - a.viewCount);
     },
   },
-  created() {
-    this.checkAuthentication(); // Verifique a autenticação quando a página for carregada
-  },
   methods: {
-    async checkAuthentication() {
-      const isAuthenticated = localStorage.getItem('authenticated') === 'true';
-
-      if (isAuthenticated) {
-        this.authenticated = true;
-        this.searchVideos();
-      } else {
-
-        this.authenticated = false;
-      }
-    },
     async searchVideos() {
       this.loading = true;
       try {
@@ -163,11 +136,16 @@ export default {
       this.$router.push('/');
     },
     backToLogin() {
-      this.$router.push('/'); // Redireciona o usuário de volta para a página de login
+      this.$router.push('/');
     },
+  },
+  created() {
+    this.searchVideos();
   },
 };
 </script>
+
+
 
 <style scoped>
 input[type='search'] {
