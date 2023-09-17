@@ -15,7 +15,7 @@
       </nav>
     </header>
     <!-- Verifica se o usuário está autenticado -->
-    <div class="inline-flex bg-blue-500/25 pl-2 mx-5 py-2 rounded-lg w-">
+    <div class="inline-flex bg-blue-500/25 pl-2 mx-5 py-2 rounded-lg">
       <div class="flex m-2 px-2 gap-3">
         <custom-button class="text-black" @click="searchVideosEnsinoFundamental"
           >Ensino fundamental</custom-button

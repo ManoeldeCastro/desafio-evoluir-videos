@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = 'AIzaSyAkTmnITis-LOyTID-fmN-bcR2bSRp-Css';
+const API_KEY = 'AIzaSyC-dK6hZPPy36bfpEbB2DLvP19ZTNt6FPA';
 
 export async function searchVideos(query, maxResults) {
   try {
