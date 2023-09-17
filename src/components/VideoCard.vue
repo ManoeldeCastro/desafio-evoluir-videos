@@ -21,7 +21,7 @@
       </div>
       <div class="px-6 py-2">
         <!-- Título do vídeo truncado -->
-        <div class="font-bold text-base mb-2" style="color: var(--color-heading)">
+        <div class="font-bold text-base mb-2">
           {{  capitalizeFirstLetter(video.snippet.title) }}
         </div>
         <!-- Descrição do vídeo truncada -->

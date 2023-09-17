@@ -1,6 +1,6 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
-  <div class="p-5">
+  <div class="px-5 pt-5 ">
     <header
       class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-6"
     >
@@ -9,7 +9,7 @@
         alt="Logo"
         class="logo-mvc"
       />
-      <word-waves class="mt-1" text="Página de Vídeos" />
+      <word-waves class="mt-1" text="Vídeos" />
       <nav class="">
         <custom-button class="text-black" @click="logout">Logout</custom-button>
       </nav>
@@ -60,6 +60,7 @@
           @video-selected="openModal"
         ></video-card>
       </div>
+      <Footer ></Footer>
       <!-- Modal de Vídeo -->
       <div v-if="modalVideo" class="modal" @click="closeModal">
         <div class="modal-content" @click.stop>
@@ -71,6 +72,7 @@
             allowfullscreen
           ></iframe>
         </div>
+        
       </div>
       <div v-if="searchQuery && !loading && sortedVideos.length === 0">
         <!-- Exibe uma mensagem se nenhum vídeo for encontrado na pesquisa -->
@@ -86,7 +88,9 @@
       >
         <!-- Exibe uma mensagem se não houver vídeos para exibir -->
         <p class="text-gray-700">Nenhum vídeo para exibir.</p>
+        
       </div>
+      
     </div>
   </div>
 </template>
@@ -96,6 +100,7 @@ import { searchVideos } from '@/services/api';
 import VideoCard from '@/components/VideoCard.vue';
 import CustomButton from '@/components/CustomButton.vue';
 import WordWaves from '@/components/WordWaves.vue';
+import Footer from "@/components/Footer.vue";
 
 export default {
   data() {
@@ -111,6 +116,7 @@ export default {
     VideoCard,
     CustomButton,
     WordWaves,
+    Footer,
   },
   computed: {
     sortedVideos() {
