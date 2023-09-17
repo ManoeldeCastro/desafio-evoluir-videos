@@ -17,14 +17,12 @@ export default {
 .custom-button {
   color: #312783;
   position: relative;
-  left: 35%;
   font-size: 16px;
   font-family: inherit;
   font-weight: 500;
-  padding: 12px 24px;
+  padding: 8px 24px;
   border: 2px solid  #312783;
   border-radius: 48px;
-  
   z-index: 1;
   overflow: hidden;
   cursor: pointer;

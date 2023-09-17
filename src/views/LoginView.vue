@@ -4,7 +4,7 @@
   >
     <img alt="Vue logo" src="./assets/logo.png" />
     <div
-      class="form max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-md"
+      class="form max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-md hover:shadow-2xl"
     >
       <word-waves text="Faça seu login:"/>
       <login-form :emails="emails" :senha="senha" />
@@ -50,14 +50,12 @@ export default {
 }
 .form:hover{
  background-color:  #B0D5E8;
+
 }
 .to-mvceditora-bg {
   background-color: #c4e1f460;
 }
 
-.focus\:ring-mvceditora-primary:focus {
-  ring-color: #312783;
-}
 img {
   width: 1000px;
 }

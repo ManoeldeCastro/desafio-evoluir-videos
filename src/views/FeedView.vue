@@ -1,9 +1,9 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
-  <div class="p-5 ">
-    <header class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-5">
+  <div class="p-5">
+    <header class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-6">
      <img src="https://mvceditora.com.br/wp-content/themes/portalv4.0/img/logo.png" alt="Logo" class="logo-mvc">
-     <word-waves class="mt-5" text="Página de Vídeos"/>
+     <word-waves class="mt-1" text="Página de Vídeos"/>
     <nav class="">
       <custom-button
           class="text-black"
@@ -14,11 +14,34 @@
     </nav>
   </header>
     <!-- Verifica se o usuário está autenticado -->
-    <div class="flex justify-between">
+    <div class="inline-flex bg-blue-500/25 pl-2 py-2 rounded-lg w-">
+      <div class="flex m-2 px-2 gap-3">
+        <custom-button
+          class="text-black"
+          @click="logout"
+        >
+          Ensino fundamental
+        </custom-button>
+        <custom-button
+          class="text-black"
+          @click="logout"
+        >
+          Ensino medio
+        </custom-button>
+      </div>
 
       <div
-        class="flex justify-end text-center items-center mx-5 bg-blue-500/25 pl-2 py-2 rounded-lg"
+        class="flex text-center items-center mx-3 py-2 rounded-lg"
       >
+
+        <input
+          type="search"
+          v-model="searchQuery"
+          @input="searchVideos"
+          id="searchVideos"
+          class="border border-gray-300 w-50 rounded-md px-3 py-2 text-gray-700 bg-white mx-5 appearance-none text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
+          placeholder="Pesquisar vídeos..."
+        />
         <label for="searchVideos" class="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,16 +54,12 @@
             />
           </svg>
         </label>
-        <input
-          type="search"
-          v-model="searchQuery"
-          @input="searchVideos"
-          id="searchVideos"
-          class="border border-gray-300 w-50 rounded-md px-3 py-2 text-gray-700 bg-white mx-5 appearance-none text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
-          placeholder="Pesquisar vídeos..."
-        />
+      </div >
+
       </div>
     </div>
+    <div>
+       
 
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center"

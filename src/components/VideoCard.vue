@@ -73,11 +73,13 @@ export default {
 }
 
 .video-item {
-  transition: transform 0.3s ease; 
+  transition: transform 0.5s ease; 
+  opacity: .97;
 }
 
 .video-item:hover {
   transform: scale(1.05); 
+  opacity: 1;
 }
 
 @keyframes slideInFromLeft {

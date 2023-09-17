@@ -31,8 +31,8 @@
       </div>
     </div>
 
-    <div>
-      <custom-button @click="login" type="submit" class="button-styled">
+    <div class="flex justify-center">
+      <custom-button @click="login" type="submit">
         Entrar
       </custom-button>
     </div>
