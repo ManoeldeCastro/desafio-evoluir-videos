@@ -60,7 +60,7 @@
           @video-selected="openModal"
         ></video-card>
       </div>
-      <Footer ></Footer>
+
       <!-- Modal de Vídeo -->
       <div v-if="modalVideo" class="modal" @click="closeModal">
         <div class="modal-content" @click.stop>
@@ -90,7 +90,6 @@
         <p class="text-gray-700">Nenhum vídeo para exibir.</p>
         
       </div>
-      
     </div>
   </div>
 </template>
@@ -100,7 +99,6 @@ import { searchVideos } from '@/services/api';
 import VideoCard from '@/components/VideoCard.vue';
 import CustomButton from '@/components/CustomButton.vue';
 import WordWaves from '@/components/WordWaves.vue';
-import Footer from "@/components/Footer.vue";
 
 export default {
   data() {
@@ -116,7 +114,6 @@ export default {
     VideoCard,
     CustomButton,
     WordWaves,
-    Footer,
   },
   computed: {
     sortedVideos() {
