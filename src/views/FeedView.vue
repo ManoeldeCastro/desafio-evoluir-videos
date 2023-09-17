@@ -1,39 +1,31 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
   <div class="p-5">
-    <header class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-6">
-     <img src="https://mvceditora.com.br/wp-content/themes/portalv4.0/img/logo.png" alt="Logo" class="logo-mvc">
-     <word-waves class="mt-1" text="Página de Vídeos"/>
-    <nav class="">
-      <custom-button
-          class="text-black"
-          @click="logout"
-        >
-          Logout
-        </custom-button>
-    </nav>
-  </header>
+    <header
+      class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-6"
+    >
+      <img
+        src="https://mvceditora.com.br/wp-content/themes/portalv4.0/img/logo.png"
+        alt="Logo"
+        class="logo-mvc"
+      />
+      <word-waves class="mt-1" text="Página de Vídeos" />
+      <nav class="">
+        <custom-button class="text-black" @click="logout">Logout</custom-button>
+      </nav>
+    </header>
     <!-- Verifica se o usuário está autenticado -->
-    <div class="inline-flex bg-blue-500/25 pl-2 py-2 rounded-lg w-">
+    <div class="inline-flex bg-blue-500/25 pl-2 mx-5 py-2 rounded-lg w-">
       <div class="flex m-2 px-2 gap-3">
-        <custom-button
-          class="text-black"
-          @click="logout"
+        <custom-button class="text-black" @click="searchVideosEnsinoFundamental"
+          >Ensino fundamental</custom-button
         >
-          Ensino fundamental
-        </custom-button>
-        <custom-button
-          class="text-black"
-          @click="logout"
+        <custom-button class="text-black" @click="searchVideosEnsinoMedio"
+          >Ensino médio</custom-button
         >
-          Ensino medio
-        </custom-button>
       </div>
 
-      <div
-        class="flex text-center items-center mx-3 py-2 rounded-lg"
-      >
-
+      <div class="flex text-center items-center mx-3 py-2 rounded-lg">
         <input
           type="search"
           v-model="searchQuery"
@@ -54,54 +46,47 @@
             />
           </svg>
         </label>
-      </div >
-
       </div>
     </div>
     <div>
-       
-
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center"
-    >
-      <!-- Lista de vídeos -->
-      <video-card
-        v-for="video in sortedVideos"
-        :key="video.id"
-        :video="video"
-        @video-selected="openModal"
-      ></video-card>
-    </div>
-
-    <!-- Modal de Vídeo -->
-    <div v-if="modalVideo" class="modal" @click="closeModal">
-      <div class="modal-content" @click.stop>
-        <span class="modal-close-button" @click="closeModal">&times;</span>
-        <iframe
-          :src="modalVideo"
-          frameborder="0"
-          class="embedded-video"
-          allowfullscreen
-        ></iframe>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center"
+      >
+        <!-- Lista de vídeos -->
+        <video-card
+          v-for="video in sortedVideos"
+          :key="video.id"
+          :video="video"
+          @video-selected="openModal"
+        ></video-card>
       </div>
-    </div>
-
-    <div v-if="searchQuery && !loading && sortedVideos.length === 0">
-      <!-- Exibe uma mensagem se nenhum vídeo for encontrado na pesquisa -->
-      <p class="text-gray-700">Nenhum vídeo correspondente encontrado.</p>
-    </div>
-
-    <div v-if="loading" class="text-center">
-      <!-- Exibe uma mensagem de carregamento -->
-      <p class="text-gray-700">Carregando vídeos...</p>
-    </div>
-
-    <div
-      v-if="!loading && !searchQuery && sortedVideos.length === 0"
-      class="text-center"
-    >
-      <!-- Exibe uma mensagem se não houver vídeos para exibir -->
-      <p class="text-gray-700">Nenhum vídeo para exibir.</p>
+      <!-- Modal de Vídeo -->
+      <div v-if="modalVideo" class="modal" @click="closeModal">
+        <div class="modal-content" @click.stop>
+          <span class="modal-close-button" @click="closeModal">&times;</span>
+          <iframe
+            :src="modalVideo"
+            frameborder="0"
+            class="embedded-video"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div v-if="searchQuery && !loading && sortedVideos.length === 0">
+        <!-- Exibe uma mensagem se nenhum vídeo for encontrado na pesquisa -->
+        <p class="text-gray-700">Nenhum vídeo correspondente encontrado.</p>
+      </div>
+      <div v-if="loading" class="text-center">
+        <!-- Exibe uma mensagem de carregamento -->
+        <p class="text-gray-700">Carregando vídeos...</p>
+      </div>
+      <div
+        v-if="!loading && !searchQuery && sortedVideos.length === 0"
+        class="text-center"
+      >
+        <!-- Exibe uma mensagem se não houver vídeos para exibir -->
+        <p class="text-gray-700">Nenhum vídeo para exibir.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -109,8 +94,8 @@
 <script>
 import { searchVideos } from '@/services/api';
 import VideoCard from '@/components/VideoCard.vue';
-import CustomButton from "@/components/CustomButton.vue";
-import WordWaves from "@/components/WordWaves.vue";
+import CustomButton from '@/components/CustomButton.vue';
+import WordWaves from '@/components/WordWaves.vue';
 
 export default {
   data() {
@@ -157,14 +142,29 @@ export default {
     backToLogin() {
       this.$router.push('/');
     },
+    async searchVideosByQuery(query) {
+      this.loading = true;
+      try {
+        const videos = await searchVideos(query, 10);
+        this.videos = videos;
+      } catch (error) {
+        console.error('Erro ao buscar vídeos do YouTube:', error);
+      } finally {
+        this.loading = false;
+      }
+    },
+    searchVideosEnsinoFundamental() {
+      this.searchVideosByQuery('ensino fundamental');
+    },
+    searchVideosEnsinoMedio() {
+      this.searchVideosByQuery('ensino medio');
+    },
   },
   created() {
     this.searchVideos();
   },
 };
 </script>
-
-
 
 <style scoped>
 input[type='search'] {
@@ -174,7 +174,7 @@ input[type='search'] {
   padding: 0.5rem;
 }
 
-.logo-mvc{
+.logo-mvc {
   width: 6rem;
 }
 
@@ -214,5 +214,4 @@ input[type='search'] {
 .imgLogo {
   width: 30rem;
 }
-
 </style>

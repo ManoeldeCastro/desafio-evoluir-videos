@@ -26,7 +26,7 @@ export default {
   z-index: 1;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s;
+  transition: ease 0.9s;
 }
 
 .custom-button:hover {
