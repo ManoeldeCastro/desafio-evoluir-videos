@@ -12,7 +12,7 @@
           type="email"
           autocomplete="email"
           required
-          class="appearance-none relative block rounded-md w-full px-3 py-2 mt-1 text-mvceditora-font bg-transparent border-b border-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
+          class="appearance-none relative block rounded-md w-full px-3 py-2 mt-1 text-mvceditora-font bg-transparent  focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
           placeholder="Seu E-mail"
         />
       </div>
@@ -25,7 +25,7 @@
           type="password"
           autocomplete="current-password"
           required
-          class="appearance-none relative block w-full px-3 rounded-md py-2 mt-1 text-mvceditora-font bg-transparent border-b border-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
+          class="appearance-none relative block w-full px-3 rounded-md py-2 mt-1 text-mvceditora-font bg-transparent focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
           placeholder="Sua Senha"
         />
       </div>
