@@ -22,9 +22,9 @@ export default {
   font-family: inherit;
   font-weight: 500;
   padding: 12px 24px;
-  border: none;
+  border: 2px solid  #312783;
   border-radius: 48px;
-  box-shadow: 6px 6px 12 #c5c5c5, 6px 6px 12px #ffffff;
+  
   z-index: 1;
   overflow: hidden;
   cursor: pointer;
@@ -33,6 +33,7 @@ export default {
 
 .custom-button:hover {
   color: #ffffff;
+  border: 2px solid transparent;
 }
 
 .custom-button::before {

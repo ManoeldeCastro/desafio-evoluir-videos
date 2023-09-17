@@ -1,10 +1,10 @@
 <template>
   <div
-    class="min-h-screen bg-gradient-to-b from-mvceditora-bg to-mvceditora-bg to-white flex items-center justify-around"
+    class="min-h-screen to-mvceditora-bg  flex items-center justify-around"
   >
     <img alt="Vue logo" src="./assets/logo.png" />
     <div
-      class="max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-2xl"
+      class="form max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-md"
     >
       <word-waves text="Faça seu login:"/>
       <login-form :emails="emails" :senha="senha" />
@@ -45,30 +45,22 @@ export default {
 </script>
 
 <style scoped>
-.from-mvceditora-bg {
-  background-color: #c4e1f4;
+.form {
+  transition: ease 2s;
 }
-
-.to-white {
-  background-color: white;
+.form:hover{
+ background-color:  #B0D5E8;
 }
-
 .to-mvceditora-bg {
-  background-color: #c4e1f4;
-}
-
-.bg-mvceditora-logo {
-  background-color: #312783;
-}
-
-.border-mvceditora-font {
-  border-color: #4d4d4e;
+  background-color: #c4e1f460;
 }
 
 .focus\:ring-mvceditora-primary:focus {
   ring-color: #312783;
 }
-
+img {
+  width: 1000px;
+}
 
 
 </style>
