@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-black mt-3 py-5 text-center rounded-t-md footer">
+  <footer class="text-black mt-3 py-5 text-center rounded-t-md footer shadow-xl">
         <!-- Conteúdo do rodapé aqui -->
         <p>&copy; {{ currentYear }} Manoel Dias. Todos os direitos reservados.</p>
   </footer>

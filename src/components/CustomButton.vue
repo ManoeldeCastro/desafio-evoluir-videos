@@ -17,7 +17,6 @@ export default {
 .custom-button {
   color: #312783;
   position: relative;
-  font-size: 16px;
   font-family: inherit;
   font-weight: 500;
   padding: 8px 24px;

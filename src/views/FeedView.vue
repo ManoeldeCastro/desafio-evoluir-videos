@@ -11,34 +11,34 @@
       />
       <word-waves class="mt-1" text="Vídeos" />
       <nav class="">
-        <custom-button class="text-black" @click="logout">Logout</custom-button>
+        <custom-button class="text-base" @click="logout">Logout</custom-button>
       </nav>
     </header>
     <!-- Verifica se o usuário está autenticado -->
-    <div class="inline-flex bg-blue-500/25 pl-2 mx-5 py-2 rounded-lg">
+    <div class="inline-flex bg-blue-500/25 pl-2 mx-5 py-2 rounded-lg shadow-md">
       <div class="flex m-2 px-2 gap-3">
-        <custom-button class="text-black" @click="searchVideosEnsinoFundamental"
+        <custom-button class="text-sm" @click="searchVideosEnsinoFundamental"
           >Ensino fundamental</custom-button
         >
-        <custom-button class="text-black" @click="searchVideosEnsinoMedio"
+        <custom-button class="text-sm" @click="searchVideosEnsinoMedio"
           >Ensino médio</custom-button
         >
       </div>
 
-      <div class="flex text-center items-center mx-3 py-2 rounded-lg">
+      <div class="flex text-center items-center mx-1 py-1 rounded-lg ">
         <input
           type="search"
           v-model="searchQuery"
           @input="searchVideos"
           id="searchVideos"
-          class="border border-gray-300 w-50 rounded-md px-3 py-2 text-gray-700 bg-white mx-5 appearance-none text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
+          class="border border-gray-300 w-50 rounded-md px-2 text-gray-700 bg-white mx-3 appearance-none text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
           placeholder="Pesquisar vídeos..."
         />
         <label for="searchVideos" class="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
+            width="25"
+            height="25"
             viewBox="0 0 512 512"
           >
             <path
@@ -177,7 +177,7 @@ input[type='search'] {
   border-color: #c4e1f4;
   color: #4d4d4e;
   border-radius: 0.25rem;
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 
 .logo-mvc {
