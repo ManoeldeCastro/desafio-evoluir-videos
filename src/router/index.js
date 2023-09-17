@@ -12,7 +12,7 @@ const router = createRouter({
       beforeEnter: (to, from, next) => {
         const isAuthenticated = localStorage.getItem('authenticated') === 'true';
         if (!isAuthenticated) {
-          next('/login');
+          next('/');
         } else {
           next();
         }
