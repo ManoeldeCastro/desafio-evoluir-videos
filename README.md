@@ -12,7 +12,7 @@ Esse é um projeto [Vue Js](https://vuejs.org/).
 
 ### Requerido
 
-- [Node.js](https://nodejs.org/) v14 or newer.
+- [Node.js](https://nodejs.org/) v18.17.1 or newer.
 
 ### Instalação
 
