@@ -6,14 +6,14 @@
     <div
       class="form max-w-md w-full space-y-8 p-8 rounded-lg bg-white bg-opacity-20 backdrop-blur-lg shadow-md hover:shadow-2xl"
     >
-      <word-waves text="Faça seu login:"/>
+      <word-title text="Faça seu login:"/>
       <login-form :emails="emails" :senha="senha" />
     </div>
   </div>
 </template>
 
 <script>
-import WordWaves from "../components/WordWaves.vue";
+import WordTitle from "../components/WordTitle.vue";
 import LoginForm from "@/components/LoginForm.vue";
 
 // Array com os endereços de e-mail autorizados para login
@@ -32,7 +32,7 @@ const senha = 'grupoNeiva';
 
 export default {
   components: {
-    WordWaves,
+    WordTitle,
     LoginForm,
   },
   data() {

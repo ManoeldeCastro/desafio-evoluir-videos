@@ -55,7 +55,6 @@ export default {
   },
   methods: {
     login() {
-      // Agora, você pode acessar as propriedades emails e senha aqui
       if (this.emails.includes(this.email) && this.password === this.senha) {
         // Define a flag 'authenticated' como true no localStorage
         localStorage.setItem('authenticated', JSON.stringify(true));

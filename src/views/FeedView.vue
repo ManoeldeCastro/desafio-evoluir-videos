@@ -8,7 +8,7 @@
         alt="Logo"
         class="logo-mvc"
       />
-      <word-waves class="mt-1" text="Vídeos" />
+      <word-title class="mt-1" text="Vídeos" />
       <nav class="">
         <custom-button class="text-base" @click="logout">Sair</custom-button>
       </nav>
@@ -61,7 +61,7 @@
 import { searchVideos } from '@/services/api';
 import VideoCard from '@/components/VideoCard.vue';
 import CustomButton from '@/components/CustomButton.vue';
-import WordWaves from '@/components/WordWaves.vue';
+import WordTitle from '@/components/WordTitle.vue';
 import SearchBar from '@/components/SearchBar.vue'; 
 import ModalVideo from '@/components/ModalVideo.vue';
 
@@ -78,7 +78,7 @@ export default {
   components: {
     VideoCard,
     CustomButton,
-    WordWaves,
+    WordTitle,
     SearchBar,
     ModalVideo,
   },
