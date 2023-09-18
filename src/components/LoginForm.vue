@@ -1,10 +1,9 @@
 <template>
   <!-- Formulário de login -->
-  <form class="mt-5 space-y-4" @submit.prevent="login">
-    <div class="rounded-md flex flex-col gap-5">
+  <form class="mt-5 px-8 space-y-3" @submit.prevent="login">
+    <div class="rounded-md flex flex-col ">
       <!-- Campo de Email -->
       <div>
-        <label for="email-address" class="text-mvceditora-font">Endereço de E-mail</label>
         <input
           id="email-address"
           v-model="email"
@@ -12,13 +11,12 @@
           type="email"
           autocomplete="email"
           required
-          class="appearance-none relative block rounded-md w-full px-3 py-2 mt-1 text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
-          placeholder="Seu E-mail"
+          class="appearance-none relative input-mail block rounded-2xl w-full bg-transparent px-8 py-2 mt-1 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
+          placeholder="Insira aqui o seu e-mail"
         />
       </div>
       <!-- Campo de Senha -->
       <div>
-        <label for="password" class="text-mvceditora-font">Senha</label>
         <input
           id="password"
           v-model="password"
@@ -26,15 +24,15 @@
           type="password"
           autocomplete="current-password"
           required
-          class="appearance-none relative block w-full px-3 rounded-md py-2 mt-1 text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
-          placeholder="Sua Senha"
+          class="appearance-none relative input-password block rounded-2xl w-full bg-transparent px-8 py-2 mt-2 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
+          placeholder="Insira aqui o sua senha"
         />
       </div>
     </div>
 
     <!-- Botão de Entrar -->
-    <div class="flex justify-center">
-      <custom-button @click="login" type="submit">
+    <div class="flex justify-center ">
+      <custom-button @click="login" class="w-full" type="submit">
         Entrar
       </custom-button>
     </div>
@@ -74,3 +72,17 @@ export default {
   },
 };
 </script>
+<style scoped>
+.input-mail{
+  border: 1px solid #312783;
+  color: #312783;
+}
+.input-mail::placeholder {
+  color: #312783;
+  font-weight: 600;
+}
+.input-password {
+  color: gray;
+  border: 1px solid gray;
+}
+</style>
