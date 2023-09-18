@@ -1,14 +1,14 @@
 <template>
-  <div class="px-5 pt-5">
+  <div class="">
     <header
-      class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-6"
+      class="flex  rounded-lg justify-between px-5 py-3 items-centers  mb-6"
     >
       <img
         src="https://mvceditora.com.br/wp-content/themes/portalv4.0/img/logo.png"
         alt="Logo"
         class="logo-mvc"
       />
-      <word-title class="mt-1" text="Vídeos" />
+      <h2 class="text-color-default font-bold text-3xl mt-4">Vídeos</h2>
       <nav class="">
         <custom-button class="text-base" @click="logout">Sair</custom-button>
       </nav>
@@ -24,7 +24,7 @@
 
     <div>
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-5 gap-4 mt-6 justify-center"
       >
         <!-- Lista de vídeos -->
         <video-card
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       videos: [],
-      searchQuery: 'ensino médio',
+      searchQuery: '',
       loading: false,
       modalVideo: null,
       authenticated: false,
@@ -91,7 +91,7 @@ export default {
     async searchVideos() {
       this.loading = true;
       try {
-        const videos = await searchVideos(this.searchQuery, 10);
+        const videos = await searchVideos(this.searchQuery, 12);
         this.videos = videos;
       } catch (error) {
         console.error('Erro ao buscar vídeos do YouTube:', error);

@@ -96,3 +96,6 @@ body::-webkit-scrollbar-thumb {
 .hover\:bg-mvceditora-font:hover {
   background-color: #4d4d4e;
 }
+.text-color-default {
+  color: #312783;
+}

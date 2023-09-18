@@ -4,14 +4,14 @@ const API_KEY = 'AIzaSyA-i86o7BXlCf0xZ4FZOcbhBleFOFxeyvU';
 
 export async function searchVideos(query, maxResults) {
   try {
-    const searchQuery = `Educativo ${query}`;
+    const searchQuery = query ? `Educativo ${query}` : `Educativo ensino fundamental`;
 
     const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
         key: API_KEY,
         q: searchQuery,
         type: 'video',
-        maxResults: 10,
+        maxResults: 12,
         part: 'snippet',
       },
     });

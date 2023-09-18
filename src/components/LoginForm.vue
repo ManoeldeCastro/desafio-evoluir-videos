@@ -11,7 +11,7 @@
           type="email"
           autocomplete="email"
           required
-          class="appearance-none relative input-mail block rounded-2xl w-full bg-transparent px-8 py-2 mt-1 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
+          class="appearance-none relative input-mail text-color-default block rounded-2xl w-full bg-transparent px-8 py-2 mt-1 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
           placeholder="Insira aqui o seu e-mail"
         />
       </div>
@@ -75,7 +75,7 @@ export default {
 <style scoped>
 .input-mail{
   border: 1px solid #312783;
-  color: #312783;
+
 }
 .input-mail::placeholder {
   color: #312783;

@@ -1,6 +1,6 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
-  <div class="text-center text-3xl font-semibold text-mvceditora-font">
+  <div class="text-center text-3xl font-semibold text-color-default">
     <!-- Um elemento de título -->
     <h1>
       {{ text }}
@@ -17,8 +17,6 @@ export default {
 };
 </script>
 <style scoped>
-.text-mvceditora-font{
-  color:  #312783;
-}
+
 </style>
 

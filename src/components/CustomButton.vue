@@ -1,7 +1,7 @@
 <template>
   <!-- O template define a estrutura HTML do componente -->
   <button
-    class="custom-button"
+    class="custom-button text-color-default"
     @click="$emit('click')"
   >
     <slot></slot> <!-- Inclui o conteúdo inserido no botão usando a tag <slot> -->
@@ -16,7 +16,6 @@ export default {
 
 <style scoped>
 .custom-button {
-  color: #312783;
   position: relative;
   font-family: inherit;
   font-weight: 500;
