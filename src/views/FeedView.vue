@@ -124,7 +124,7 @@ export default {
       this.searchVideosByQuery('ensino fundamental');
     },
     searchVideosEnsinoMedio() {
-      this.searchVideosByQuery('ensino medio');
+      this.searchVideosByQuery('ensino médio');
     },
   },
   created() {

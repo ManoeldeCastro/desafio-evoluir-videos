@@ -11,7 +11,7 @@
           type="email"
           autocomplete="email"
           required
-          class="appearance-none relative input-mail text-color-default block rounded-2xl w-full bg-transparent px-8 py-2 mt-1 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
+          class="appearance-none relative input-mail text-color-default block rounded-3xl w-full bg-transparent px-8 py-2 mt-1 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
           placeholder="Insira aqui o seu e-mail"
         />
       </div>
@@ -24,7 +24,7 @@
           type="password"
           autocomplete="current-password"
           required
-          class="appearance-none relative input-password block rounded-2xl w-full bg-transparent px-8 py-2 mt-2 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
+          class="appearance-none relative input-password block rounded-3xl w-full bg-transparent px-8 py-2 mt-2 focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-2xl placeholder:text-center"
           placeholder="Insira aqui o sua senha"
         />
       </div>
