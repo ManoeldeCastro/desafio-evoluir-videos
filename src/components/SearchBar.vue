@@ -8,7 +8,7 @@
           :value="localSearchQuery"
           @input="searchVideos"
           id="searchVideos"
-          class="input-search text-color-default appearance-none w-96 px-4 h-16  rounded-3xl mt-1  mx-5 focus:outline-none  placeholder:text-left"
+          class="input-search text-color-default appearance-none w-96 px-4 h-16  rounded-3xl mt-1  mx-5 focus:outline-none focus:ring focus:ring-mvceditora-primary  placeholder:text-left"
           placeholder="Pesquisar vídeos 🔎"
         />
       </div>
