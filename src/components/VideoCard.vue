@@ -1,6 +1,6 @@
 <template>
   <!-- Estrutura HTML para exibir informações do vídeo -->
-  <div class="video-item text-color-default" :class="{ 'slide-in': animateCard }" @click="openModal">
+  <div class="video-item text-color-default"  @click="openModal">
     <div
       class="max-w-sm h-[20rem] rounded-lg overflow-hidden shadow-sm mb-4 text-white text-color-default  bg-blue-500/60 shadow-zinc-800 cursor-pointer"
       title="Clique para assistir"
@@ -61,8 +61,6 @@ export default {
 .snippet {
   background-color: white;
 }
-
-
 .video-item {
   transition: transform 0.5s ease; 
   opacity: .97;
@@ -71,20 +69,5 @@ export default {
 .video-item:hover {
   transform: scale(1.05); 
   opacity: 1;
-}
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.slide-in {
-  animation: slideInFromLeft 0.5s ease forwards;
 }
 </style>
