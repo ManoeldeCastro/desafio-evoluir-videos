@@ -12,7 +12,7 @@
           type="email"
           autocomplete="email"
           required
-          class="appearance-none relative block rounded-md w-full px-3 py-2 mt-1 text-mvceditora-font bg-transparent  focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
+          class="appearance-none relative block rounded-md w-full px-3 py-2 mt-1 text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
           placeholder="Seu E-mail"
         />
       </div>

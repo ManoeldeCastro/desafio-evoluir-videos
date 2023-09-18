@@ -1,6 +1,5 @@
 <template>
-  <!-- O template define a estrutura HTML do componente -->
-  <div class="px-5 pt-5 ">
+  <div class="px-5 pt-5">
     <header
       class="flex bg-white shadow-lg rounded-lg justify-between px-20 py-3 items-centers mx-16 mb-6"
     >
@@ -11,43 +10,18 @@
       />
       <word-waves class="mt-1" text="Vídeos" />
       <nav class="">
-        <custom-button class="text-base" @click="logout">Logout</custom-button>
+        <custom-button class="text-base" @click="logout">Sair</custom-button>
       </nav>
     </header>
-    <!-- Verifica se o usuário está autenticado -->
-    <div class="inline-flex bg-blue-500/25 pl-2 mx-5 py-2 rounded-lg shadow-md">
-      <div class="flex m-2 px-2 gap-3">
-        <custom-button class="text-sm" @click="searchVideosEnsinoFundamental"
-          >Ensino fundamental</custom-button
-        >
-        <custom-button class="text-sm" @click="searchVideosEnsinoMedio"
-          >Ensino médio</custom-button
-        >
-      </div>
 
-      <div class="flex text-center items-center mx-1 py-1 rounded-lg ">
-        <input
-          type="search"
-          v-model="searchQuery"
-          @input="searchVideos"
-          id="searchVideos"
-          class="border border-gray-300 w-50 rounded-md px-2 text-gray-700 bg-white mx-3 appearance-none text-mvceditora-font focus:outline-none focus:ring focus:ring-mvceditora-primary focus:rounded-md"
-          placeholder="Pesquisar vídeos..."
-        />
-        <label for="searchVideos" class="">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            viewBox="0 0 512 512"
-          >
-            <path
-              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-            />
-          </svg>
-        </label>
-      </div>
-    </div>
+    <!-- Componente SearchBar -->
+    <search-bar
+      :searchQuery="searchQuery"
+      @searchVideosEnsinoFundamental="searchVideosEnsinoFundamental"
+      @searchVideosEnsinoMedio="searchVideosEnsinoMedio"
+      @searchVideos="searchVideos"
+    ></search-bar>
+
     <div>
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 px-5 gap-4 mt-6 justify-center"
@@ -62,18 +36,8 @@
       </div>
 
       <!-- Modal de Vídeo -->
-      <div v-if="modalVideo" class="modal" @click="closeModal">
-        <div class="modal-content" @click.stop>
-          <span class="modal-close-button" @click="closeModal">&times;</span>
-          <iframe
-            :src="modalVideo"
-            frameborder="0"
-            class="embedded-video"
-            allowfullscreen
-          ></iframe>
-        </div>
-        
-      </div>
+      <ModalVideo :modalVideo="modalVideo" @close="modalVideo = null" />
+
       <div v-if="searchQuery && !loading && sortedVideos.length === 0">
         <!-- Exibe uma mensagem se nenhum vídeo for encontrado na pesquisa -->
         <p class="text-gray-700">Nenhum vídeo correspondente encontrado.</p>
@@ -88,7 +52,6 @@
       >
         <!-- Exibe uma mensagem se não houver vídeos para exibir -->
         <p class="text-gray-700">Nenhum vídeo para exibir.</p>
-        
       </div>
     </div>
   </div>
@@ -99,6 +62,8 @@ import { searchVideos } from '@/services/api';
 import VideoCard from '@/components/VideoCard.vue';
 import CustomButton from '@/components/CustomButton.vue';
 import WordWaves from '@/components/WordWaves.vue';
+import SearchBar from '@/components/SearchBar.vue'; 
+import ModalVideo from '@/components/ModalVideo.vue';
 
 export default {
   data() {
@@ -114,6 +79,8 @@ export default {
     VideoCard,
     CustomButton,
     WordWaves,
+    SearchBar,
+    ModalVideo,
   },
   computed: {
     sortedVideos() {
@@ -136,13 +103,10 @@ export default {
       this.modalVideo = videoUrl;
     },
     closeModal() {
-      this.modalVideo = null;
+      this.modalVideo = false;
     },
     logout() {
       localStorage.setItem('authenticated', JSON.stringify(false));
-      this.$router.push('/');
-    },
-    backToLogin() {
       this.$router.push('/');
     },
     async searchVideosByQuery(query) {
@@ -153,7 +117,7 @@ export default {
       } catch (error) {
         console.error('Erro ao buscar vídeos do YouTube:', error);
       } finally {
-        this.loading = false;
+        this.loading = null;
       }
     },
     searchVideosEnsinoFundamental() {
@@ -170,51 +134,7 @@ export default {
 </script>
 
 <style scoped>
-input[type='search'] {
-  border-color: #c4e1f4;
-  color: #4d4d4e;
-  border-radius: 0.25rem;
-  padding: 0.3rem;
-}
-
 .logo-mvc {
   width: 6rem;
-}
-
-.modal {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background-color: white;
-  border-radius: 0.25rem;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.modal-close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  color: #4d4d4e;
-  cursor: pointer;
-}
-
-.embedded-video {
-  width: 854px;
-  height: 480px;
-}
-
-.imgLogo {
-  width: 30rem;
 }
 </style>
