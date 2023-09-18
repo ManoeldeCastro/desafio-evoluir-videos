@@ -2,7 +2,7 @@
   <!-- Estrutura HTML para exibir informações do vídeo -->
   <div class="video-item text-color-default" :class="{ 'slide-in': animateCard }" @click="openModal">
     <div
-      class="max-w-sm h-[20rem] rounded-lg overflow-hidden shadow-md mb-4 text-white text-color-default  bg-blue-500/60 shadow-zinc-800 cursor-pointer"
+      class="max-w-sm h-[20rem] rounded-lg overflow-hidden shadow-sm mb-4 text-white text-color-default  bg-blue-500/60 shadow-zinc-800 cursor-pointer"
       title="Clique para assistir"
     >
       <!-- Exibe a imagem em miniatura do vídeo -->
