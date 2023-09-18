@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       videos: [],
-      searchQuery: '',
+      searchQuery: 'ensino médio',
       loading: false,
       modalVideo: null,
       authenticated: false,

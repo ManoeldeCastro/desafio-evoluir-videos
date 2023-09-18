@@ -1,9 +1,10 @@
 <template>
+  <!-- O template define a estrutura HTML do componente -->
   <button
     class="custom-button"
     @click="$emit('click')"
   >
-    <slot></slot>
+    <slot></slot> <!-- Inclui o conteúdo inserido no botão usando a tag <slot> -->
   </button>
 </template>
 

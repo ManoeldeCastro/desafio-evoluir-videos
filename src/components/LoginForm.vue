@@ -1,10 +1,10 @@
 <template>
+  <!-- Formulário de login -->
   <form class="mt-5 space-y-4" @submit.prevent="login">
     <div class="rounded-md flex flex-col gap-5">
+      <!-- Campo de Email -->
       <div>
-        <label for="email-address" class="text-mvceditora-font"
-          >Endereço de E-mail</label
-        >
+        <label for="email-address" class="text-mvceditora-font">Endereço de E-mail</label>
         <input
           id="email-address"
           v-model="email"
@@ -16,6 +16,7 @@
           placeholder="Seu E-mail"
         />
       </div>
+      <!-- Campo de Senha -->
       <div>
         <label for="password" class="text-mvceditora-font">Senha</label>
         <input
@@ -31,6 +32,7 @@
       </div>
     </div>
 
+    <!-- Botão de Entrar -->
     <div class="flex justify-center">
       <custom-button @click="login" type="submit">
         Entrar
@@ -72,17 +74,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-.border-mvceditora-font {
-  border-color: #4d4d4e;
-}
-.focus\:ring-mvceditora-primary:focus {
-  ring-color: #312783;
-}
-.hover\:bg-mvceditora-font:hover {
-  background-color: #4d4d4e;
-}
-
-</style>

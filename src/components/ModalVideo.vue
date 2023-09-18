@@ -1,13 +1,18 @@
 <template>
+  <!-- O template define a estrutura HTML do componente -->
   <div v-if="modalVideo" class="modal" @click="closeModal">
+    <!-- Modal exibido se a prop 'modalVideo' for verdadeira -->
     <div class="modal-content" @click.stop>
+      <!-- Conteúdo do modal -->
       <span class="modal-close-button" @click="closeModal">&times;</span>
+      <!-- Botão de fechar o modal -->
       <iframe
         :src="modalVideo"
         frameborder="0"
         class="embedded-video"
         allowfullscreen
       ></iframe>
+      <!-- Iframe para exibir o vídeo -->
     </div>
   </div>
 </template>
