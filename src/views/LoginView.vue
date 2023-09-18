@@ -6,7 +6,7 @@
     <div
       class="h-screen flex flex-col justify-center space-y-7 p-8 rounded-lg bg-white backdrop-blur-lg shadow-md hover:shadow-2xl "
     >
-      <div class="flex flex-col text-center font-light text-2xl justify-center title-login">
+      <div class="flex flex-col text-center font-normal text-2xl justify-center title-login">
       <h2>Seja bem-vindo!</h2>
       <h2>Entre na sua conta:</h2>
       </div>
