@@ -17,7 +17,7 @@ Esse é um projeto [Vue Js](https://vuejs.org/).
 ### Instalação
 
 - Clone the repo - `git clone https://github.com/ManoeldeCastro/desafio-evoluir-videos.git`.
-- Install project dependencies — `npm i` ou `npm install`.
+- Install project dependencies — `npm install`.
 - Launch the app — `npm run dev`, it will become available at [http://localhost:5173/](http://localhost:5173/).
 
 ### Scripts
